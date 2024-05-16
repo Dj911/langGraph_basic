@@ -13,8 +13,8 @@ export const sendEmail = async (mailDetails) => {
             requireTLS: true,
             secure: false, // Use `true` for port 465, `false` for all other ports
             auth: {
-                user: "dharmaraj.jadeja@bytestechnolab.com",
-                pass: "dj2122149",
+                user: process.env.EMAIL,
+                pass: process.env.EMAIL_PASSWORD,
             },
         });
 
