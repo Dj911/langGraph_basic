@@ -9,8 +9,36 @@ export class AppController {
   constructor(private readonly appService: AppService) { }
 
   @ApiOperation({ summary: 'Generate Blog Post based on the topic' })
-  @ApiResponse({ status: 201, description: 'Your blog has been generated and sent to your email. Hope you like it!' })
-  @ApiResponse({ status: 429, description: 'ThrottlerException: Too Many Requests' })
+  @ApiResponse({
+    status: 201, description: 'Your blog has been generated and sent to your email. Hope you like it!',
+    content: {
+      'application/json': {
+        schema: { type: 'object' }, examples: {
+          default: {
+            value: {
+              "message": "Your blog has been generated and sent to your email. Hope you like it!"
+            }
+          }
+        }
+      }
+    }
+  })
+  @ApiResponse({
+    status: 429,
+    description: 'ThrottlerException: Too Many Requests',
+    content: {
+      'application/json': {
+        schema: { type: 'object' }, examples: {
+          default: {
+            value: {
+              "statusCode": 429,
+              "message": "ThrottlerException: Too Many Requests"
+            }
+          }
+        }
+      }
+    }
+  })
   @ApiBody({ description: 'Topic and Email', examples: { default: { value: { topic: "string", email: "string" } } } })
   @Throttle({ default: { limit: 1, ttl: 60000 } })
   @Post('/generateOutline')
