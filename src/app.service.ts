@@ -8,6 +8,8 @@ import { CONVERT_SYSTEM_TEMPLATE, DRAFT_SYSTEM_TEMPLATE, GREETING_MESSAGE, RESEA
 import { StringOutputParser } from '@langchain/core/output_parsers';
 import { sendEmail } from './utils/common';
 
+import messages from 'src/utils/messages'
+
 config()
 
 @Injectable()
@@ -157,11 +159,11 @@ export class AppService {
 
       await sendEmail(options)
 
-      return result
+      return { message: messages.EMAIL_SENT_SUCCESSFULLY }
 
     } catch (error) {
       console.error("Error generating outline:", error);
-      throw error;
+      return { "error": messages.EMAIL_SENT_FAILED };
     }
   }
 }
