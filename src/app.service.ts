@@ -148,7 +148,7 @@ export class AppService {
 
       const options = {
         from: process.env.EMAIL, // sender address
-        to: "dharmaraj.jadeja911@gmail.com", // receiver email
+        to: email, // receiver email
         subject: "Blog Post is ready", // Subject line
         text: "Your Blog Post", // plain text body
         html: result,
