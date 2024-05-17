@@ -70,6 +70,11 @@ curl --location 'http://localhost:4000/generateOutline' \
 ```
 Api will take around 1 minute to finish. Once finished, we will send you the blog post in the email that you sent to the api.
 
+## Swagger URL
+```bash
+http://localhost:4000/docs#/agent/AppController_generateOutline
+```
+
 ## Stay in touch
 
 - Author - [Dharmaraj Jadeja](https://github.com/Dj911)
