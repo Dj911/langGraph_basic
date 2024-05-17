@@ -68,7 +68,7 @@ curl --location 'http://localhost:4000/generateOutline' \
     "email": "<your_email>"
 }'
 ```
-Api will take around 1 minitue to finish. Once finished, we will send you the blog post in the email that you sent to the api.
+Api will take around 1 minute to finish. Once finished, we will send you the blog post in the email that you sent to the api.
 
 ## Stay in touch
 
