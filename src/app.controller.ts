@@ -10,7 +10,7 @@ export class AppController {
 
   @ApiOperation({ summary: 'Generate Blog Post based on the topic' })
   @ApiResponse({
-    status: 201, description: 'Your blog has been generated and sent to your email. Hope you like it!',
+    status: 201, description: 'Success',
     content: {
       'application/json': {
         schema: { type: 'object' }, examples: {
@@ -25,7 +25,7 @@ export class AppController {
   })
   @ApiResponse({
     status: 429,
-    description: 'ThrottlerException: Too Many Requests',
+    description: 'Too Many Requests',
     content: {
       'application/json': {
         schema: { type: 'object' }, examples: {
