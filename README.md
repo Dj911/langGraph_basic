@@ -24,7 +24,9 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A simple demo of an autonomous agent that researches a given topic, drafts a blog post on the subject and iteratively revises the post before delivering a final version by utilising LangChain, a powerfull framework to construct LLM‑powered apps easily and LangGrpah, a library for building stateful, multi-actor applications with LLMs.
+
+This demo has basic setup and have a single endpoint that takes the topic and email as an input and sends the blog post in the email
 
 ## Installation
 
@@ -45,29 +47,29 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+## Update Env file with required details
+```env
+OPENAI_API_KEY="YOUR API KEY HERE"
+EMAIL="YOUR EMAIL HERE"
+EMAIL_PASSWORD="YOUR PASSWORD HERE"
 ```
 
-## Support
+## NOTE:
+For receiving the email, need to have a gmail account with less secure app access enabled
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Calling API
+There is a single route that generates the Blog Post. You nee to call the "/generateOutline"
+
+```bash
+curl --location 'http://localhost:4000/generateOutline' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "topic": "Startup Legal Fees: How Much to Budget in 2024",
+    "email": "<your_email>"
+}'
+```
+Api will take around 1 minitue to finish. Once finished, we will send you the blog post in the email that you sent to the api.
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Author - [Dharmaraj Jadeja](https://github.com/Dj911)
